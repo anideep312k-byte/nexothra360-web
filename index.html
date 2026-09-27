@@ -1,1 +1,251 @@
-<!DOCTYPE html><html><head><title>NEXOTHRA360</title></head><body><h1>NEXOTHRA360 — AI-Native Security Operations Platform</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEXOTHRA360 — AI-Native Security Operations Platform</title>
+<meta name="description" content="NEXOTHRA360 — AI-Native Security Operations Platform. Multi-tenant SOC with detection, correlation, UEBA, SOAR, and AI L1–L5 pipeline.">
+<style>
+  :root {
+    --bg:#05080d; --bg2:#0a0f18; --panel:rgba(20,28,42,0.72);
+    --border:rgba(140,190,255,0.16); --fg:#e6eefb; --fg-dim:#9fb0c6;
+    --accent:#4fd1ff; --accent2:#a06bff; --warn:#f0b429;
+    --ok:#2ecc71;
+  }
+  * { box-sizing: border-box; }
+  html,body { margin:0; padding:0; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, "Inter", Helvetica, Arial, sans-serif;
+    background: radial-gradient(1400px 900px at 15% 8%, #0b2036 0%, #06101c 55%, #030810 100%);
+    color: var(--fg);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  header {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(10,15,24,0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  header .row { display: flex; align-items: center; justify-content: space-between; }
+  header .brand { font-weight: 800; letter-spacing: .05em; font-size: 18px; color: var(--accent); }
+  header nav a { margin-left: 20px; color: var(--fg-dim); font-size: 13px; }
+  header nav a:hover { color: var(--fg); }
+  .hero { padding: 90px 0 70px; text-align: center; }
+  .hero h1 { font-size: 46px; line-height: 1.15; margin: 0 0 16px; letter-spacing: -0.01em; }
+  .hero h1 span { color: var(--accent); }
+  .hero .tagline { font-size: 18px; color: var(--fg-dim); margin-bottom: 30px; }
+  .hero .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 12px 22px; border-radius: 10px;
+    font-weight: 600; font-size: 14px;
+    border: 1px solid var(--border);
+    background: rgba(24,32,46,0.72);
+    color: var(--fg);
+    transition: background .15s, border-color .15s, transform .12s;
+  }
+  .btn:hover { background: rgba(74,168,255,0.10); border-color: rgba(140,190,255,0.34); text-decoration: none; }
+  .btn.primary {
+    background: linear-gradient(180deg, #4fd1ff, #2b74d1);
+    border-color: #2b74d1; color: #fff;
+    box-shadow: 0 8px 26px rgba(79,209,255,0.30);
+  }
+  .btn.primary:hover { filter: brightness(1.08); }
+  section { padding: 60px 0; }
+  section h2 {
+    font-size: 13px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .12em;
+    color: var(--accent); margin: 0 0 24px;
+  }
+  .grid {
+    display: grid; gap: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: border-color .18s, transform .18s;
+  }
+  .card:hover { border-color: rgba(140,190,255,0.34); transform: translateY(-2px); }
+  .card h3 { font-size: 15px; margin: 0 0 6px; color: var(--fg); }
+  .card p { font-size: 13px; color: var(--fg-dim); margin: 0; }
+  .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .badge {
+    display: inline-block; padding: 4px 10px; border-radius: 999px;
+    background: rgba(24,32,46,0.72);
+    border: 1px solid var(--border);
+    font-size: 11px; color: var(--fg-dim);
+  }
+  .stats { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+  .stat { text-align: center; padding: 20px; }
+  .stat .v { font-size: 34px; font-weight: 700; color: var(--accent); }
+  .stat .l { font-size: 12px; color: var(--fg-dim); text-transform: uppercase; letter-spacing: .08em; margin-top: 4px; }
+  pre {
+    background: rgba(10,15,24,0.72);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    overflow: auto;
+    font-size: 12.5px;
+    color: #c8e0ff;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  code { color: var(--accent); }
+  footer {
+    padding: 40px 0;
+    text-align: center;
+    font-size: 12.5px;
+    color: var(--fg-dim);
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+  .warn { color: var(--warn); }
+  @media (max-width: 720px) {
+    .hero h1 { font-size: 32px; }
+    .hero { padding: 60px 0 40px; }
+    header nav a { display: none; }
+    header nav a:first-child { display: inline; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container row">
+    <div class="brand">NEXOTHRA360</div>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#tech">Tech</a>
+      <a href="https://github.com/anideep312k-byte/nexothra360-web" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>NEXOTHRA<span>360</span></h1>
+    <p class="tagline">AI-Native Security Operations Platform</p>
+    <p style="color: var(--fg-dim); max-width: 640px; margin: 0 auto 30px;">
+      A single-file, zero-dependency SOC platform built end-to-end.
+      Multi-tenant, JWT + RBAC, durable message bus, detection → correlation → risk → SOAR,
+      UEBA baselines, and AI L1–L5 pipeline.
+    </p>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/anideep312k-byte/nexothra360-web" target="_blank" rel="noopener">View on GitHub</a>
+      <a class="btn" href="#features">Explore Features</a>
+    </div>
+  </div>
+</section>
+
+<section id="stats" class="container">
+  <div class="stats">
+    <div class="stat"><div class="v">159</div><div class="l">Tests Passing</div></div>
+    <div class="stat"><div class="v">11</div><div class="l">SOC Roles</div></div>
+    <div class="stat"><div class="v">127+</div><div class="l">Features</div></div>
+    <div class="stat"><div class="v">0</div><div class="l">External Deps</div></div>
+  </div>
+</section>
+
+<section id="features" class="container">
+  <h2>Core Capabilities</h2>
+  <div class="grid">
+    <div class="card"><h3>Multi-Tenant Backend</h3><p>SQLite + PostgreSQL with strict tenant isolation across all queries.</p></div>
+    <div class="card"><h3>JWT + RBAC</h3><p>11 SOC roles with 30+ fine-grained permissions, enforced at the API layer.</p></div>
+    <div class="card"><h3>Durable Message Bus</h3><p>DB-backed queue with DLQ, lease semantics, and backpressure handling.</p></div>
+    <div class="card"><h3>Ingest Pipeline</h3><p>Normalize → validate → enrich → dedup. Syslog TCP/UDP, file tail, HTTP ingest.</p></div>
+    <div class="card"><h3>Detection Engine</h3><p>Built-in Python rules + optional YAML loader with MITRE ATT&CK mapping.</p></div>
+    <div class="card"><h3>Correlation</h3><p>Entity-based incident grouping with bounded timeline and state machine.</p></div>
+    <div class="card"><h3>UEBA</h3><p>Online mean/variance baselines per entity and metric with anomaly scoring.</p></div>
+    <div class="card"><h3>IOC Store</h3><p>IPv4, domain, SHA256, URL tracking with tenant-scoped matching and expiry.</p></div>
+    <div class="card"><h3>Risk Engine</h3><p>Multi-factor scoring across severity, confidence, entity state, IOC, anomaly.</p></div>
+    <div class="card"><h3>AI L1–L5</h3><p>Rule-based + statistical pipeline with optional LLM provider integration.</p></div>
+    <div class="card"><h3>SOAR</h3><p>Propose / approve / execute / rollback actions with kill switch.</p></div>
+    <div class="card"><h3>Hash-Chained Audit</h3><p>Immutable SHA-256 chain with periodic anchors and verification API.</p></div>
+  </div>
+</section>
+
+<section id="architecture" class="container">
+  <h2>Architecture</h2>
+  <pre>
+    ┌─────────────────────────────────────────────────────────────┐
+    │                     NEXOTHRA360                             │
+    │                                                             │
+    │  Ingest  →  Normalize  →  Validate  →  Enrich  →  Dedup    │
+    │     │                                                       │
+    │     ▼                                                       │
+    │  Durable Bus (DLQ · Lease · Backpressure)                   │
+    │     │                                                       │
+    │     ▼                                                       │
+    │  Detection Engine (built-in + YAML + MITRE)                 │
+    │     │                                                       │
+    │     ▼                                                       │
+    │  Correlation  →  Entity State  →  Risk Engine               │
+    │     │                                                       │
+    │     ▼                                                       │
+    │  Incidents · Cases · Alerts · Timeline                      │
+    │     │                                                       │
+    │     ▼                                                       │
+    │  SOAR (Approval · Dry-run · Rollback · Kill Switch)         │
+    │     │                                                       │
+    │     ▼                                                       │
+    │  Hash-Chained Audit Log                                     │
+    └─────────────────────────────────────────────────────────────┘
+  </pre>
+</section>
+
+<section id="tech" class="container">
+  <h2>Tech Stack</h2>
+  <div class="badges">
+    <span class="badge">Python 3</span>
+    <span class="badge">Zero Dependencies</span>
+    <span class="badge">SQLite</span>
+    <span class="badge">PostgreSQL</span>
+    <span class="badge">JWT HS256</span>
+    <span class="badge">PBKDF2 600k</span>
+    <span class="badge">TOTP MFA</span>
+    <span class="badge">Prometheus</span>
+    <span class="badge">Vanilla JS</span>
+    <span class="badge">Canvas 2D</span>
+  </div>
+  <h2 style="margin-top: 32px;">Quick Start</h2>
+  <pre>
+# Clone
+git clone https://github.com/anideep312k-byte/nexothra360-web.git
+cd nexothra360-web
+
+# Run NEXOTHRA360 (from source repo)
+python3 KAVACH360.py --self-test
+python3 KAVACH360.py --host 127.0.0.1 --port 8443
+
+# Open
+http://127.0.0.1:8443
+  </pre>
+  <p class="warn" style="font-size: 12.5px;">
+    Note: NEXOTHRA360 is a learning project. It is NOT a replacement for
+    enterprise SIEM / SOAR products such as Splunk, Microsoft Sentinel,
+    IBM QRadar, or Palo Alto Cortex XSOAR.
+  </p>
+</section>
+
+<footer>
+  <div class="container">
+    NEXOTHRA360 — AI-Native Security Operations Platform<br>
+    Original implementation. No competitor code, assets, or branding.<br>
+    <a href="https://github.com/anideep312k-byte/nexothra360-web" target="_blank" rel="noopener">GitHub Repository</a>
+  </div>
+</footer>
+
+</body>
+</html>
